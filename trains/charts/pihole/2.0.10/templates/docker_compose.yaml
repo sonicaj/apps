@@ -1,0 +1,44 @@
+version: "3.5"
+
+services:
+  mongo:
+    image: {{ libs.pihole_base.images.db_image_name("latest") }}
+    container_name: mongo
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: admin
+      MONGO_INITDB_ROOT_PASSWORD: admin
+    ports:
+      - {{ libs.pihole_base.images.port_to_bind("21119") }}
+    networks:
+      - MONGO
+    volumes:
+      - type: volume
+        source: MONGO_DATA
+        target: /data/db
+      - type: volume
+        source: MONGO_CONFIG
+        target: /data/configdb
+  mongo-express:
+    image: {{ libs.pihole_base.images.express_image_name("latest") }}
+    container_name: mongo-express
+    environment:
+      ME_CONFIG_MONGODB_ADMINUSERNAME: {{ username }}
+      ME_CONFIG_MONGODB_ADMINPASSWORD: {{ password }}
+      ME_CONFIG_MONGODB_SERVER: mongo
+      ME_CONFIG_MONGODB_PORT: "27017"
+    ports:
+      - {{ libs.pihole_base.utils.port_binding("8080", "8080") }}
+    networks:
+      - MONGO
+    depends_on:
+      - mongo
+
+networks:
+  MONGO:
+    name: {{ network }}
+
+volumes:
+  MONGO_DATA:
+    name: {{ data_db_name }}
+  MONGO_CONFIG:
+    name: {{ config_db_name }}

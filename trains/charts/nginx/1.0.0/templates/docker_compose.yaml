@@ -1,0 +1,16 @@
+version: "3.5"
+
+services:
+  nginx:
+    image: {{ libs.nginx_base.images.nginx_image_name("latest") }}
+    container_name: nginx
+    ports:
+      - {{ libs.nginx_base.images.port_to_bind("21119") }}
+    networks:
+      - NGINX
+
+
+networks:
+  NGINX:
+    name: {{ network }}
+

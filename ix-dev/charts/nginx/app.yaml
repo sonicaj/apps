@@ -1,10 +1,10 @@
-name: pihole
+name: nginx
 description: DNS and Ad-filtering for your network.
 annotations:
-  title: Pi-hole
+  title: Nginx
 type: application
-version: 2.0.10
-lib_version: 1.0.0
+version: 1.0.1
+lib_version: 1.0.1
 apiVersion: v2
 appVersion: 2023.11.0
 kubeVersion: '>=1.16.0-0'

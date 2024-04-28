@@ -1,0 +1,26 @@
+version: "3.5"
+
+services:
+  pihole:
+    image: {{ libs.pihole_base.images.pihole_image_name("latest") }}
+    container_name: pihole
+    environment:
+      PIHOLE_INITDB_ROOT_USERNAME: {{ libs.pihole_base.utils.ADMIN_USERNAME }}
+      PIHOLE_INITDB_ROOT_PASSWORD: {{ libs.pihole_base.utils.ADMIN_PASSWORD }}
+    ports:
+      - {{ libs.pihole_base.images.port_to_bind("21119") }}
+    networks:
+      - PIHOLE
+    volumes:
+      - type: volume
+        source: PIHOLE_DATA
+        target: /data/db
+
+
+networks:
+  PIHOLE:
+    name: {{ network }}
+
+volumes:
+  PIHOLE_DATA:
+    name: {{ data_db_name }}

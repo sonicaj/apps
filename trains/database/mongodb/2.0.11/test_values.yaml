@@ -1,0 +1,5 @@
+network: "MONGO"
+data_db_name: "MONGO_DATA_db"
+config_db_name: "MONGO_CONFIG_db"
+username: "aDmin"
+password: "admin123"
