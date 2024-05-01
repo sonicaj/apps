@@ -4,7 +4,7 @@ annotations:
   title: Nginx
 type: application
 version: 1.0.1
-lib_version: 1.0.1
+lib_version: 1.0.0
 apiVersion: v2
 appVersion: 2023.11.0
 kubeVersion: '>=1.16.0-0'
