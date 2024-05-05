@@ -5,6 +5,7 @@ annotations:
 type: application
 version: 2.0.11
 lib_version: 1.0.0
+train: database
 apiVersion: v2
 appVersion: 2023.11.0
 kubeVersion: '>=1.16.0-0'

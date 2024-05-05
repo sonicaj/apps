@@ -1,0 +1,3 @@
+networks:
+  COMMON_NETWORK:
+    name: some_network
