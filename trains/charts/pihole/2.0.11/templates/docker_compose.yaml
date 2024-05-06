@@ -2,13 +2,13 @@ version: "3.5"
 
 services:
   pihole:
-    image: {{ libs.charts.pihole.images.pihole_image_name("latest") }}
-    container_name: {{ libs.base.containers.container_name("pihole") }}
+    image: {{ ix_lib.charts.pihole.images.pihole_image_name("latest") }}
+    container_name: {{ ix_lib.base.containers.container_name("pihole") }}
     environment:
-      PIHOLE_INITDB_ROOT_USERNAME: {{ libs.charts.pihole.utils.ADMIN_USERNAME }}
-      PIHOLE_INITDB_ROOT_PASSWORD: {{ libs.charts.pihole.utils.ADMIN_PASSWORD }}
+      PIHOLE_INITDB_ROOT_USERNAME: {{ ix_lib.charts.pihole.utils.ADMIN_USERNAME }}
+      PIHOLE_INITDB_ROOT_PASSWORD: {{ ix_lib.charts.pihole.utils.ADMIN_PASSWORD }}
     ports:
-      - {{ libs.charts.pihole.images.port_to_bind("21119") }}
+      - {{ ix_lib.charts.pihole.images.port_to_bind("21119") }}
     networks:
       - PIHOLE
     volumes:
