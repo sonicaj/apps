@@ -3,7 +3,7 @@ description: DNS and Ad-filtering for your network.
 annotations:
   title: Nginx
 type: application
-version: 1.0.1
+version: 1.0.2
 lib_version: 1.0.0
 lib_version_hash: e40a5f95d4e70865b890baa66cd944e77077fa5db3ed5544f5498686ec2172ed
 train: charts
