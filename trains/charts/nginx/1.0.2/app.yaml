@@ -1,4 +1,25 @@
-runAsContext:
+name: nginx
+description: DNS and Ad-filtering for your network.
+title: Nginx
+type: application
+version: 1.0.2
+lib_version: 1.0.0
+lib_version_hash: e40a5f95d4e70865b890baa66cd944e77077fa5db3ed5544f5498686ec2172ed
+train: charts
+app_version: v2
+maintainers:
+  - name: truenas
+    url: https://www.truenas.com/
+    email: dev@ixsystems.com
+home: https://pi-hole.net/
+icon: https://media.sys.truenas.net/apps/pihole/icons/icon.png
+sources:
+  - https://pi-hole.net/
+  - https://github.com/truenas/charts/tree/master/charts/pihole
+keywords:
+  - networking
+  - dns
+run_as_context:
   - userName: root
     groupName: root
     gid: 0
@@ -27,4 +48,4 @@ capabilities:
     description: Pi-hole is able to use raw sockets.
   - name: KILL
     description: Pi-hole is able to kill processes.
-hostMounts: []
+host_mounts: []
